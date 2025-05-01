@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chick & Twirl Kiosk</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles Link -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Tailwind Link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Flowbite Link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-[#121212] font-['Poppins']">
+    <button
+      data-drawer-target="default-sidebar"
+      data-drawer-toggle="default-sidebar"
+      aria-controls="default-sidebar"
+      type="button"
+      class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+    >
+      <span class="sr-only">Open sidebar</span>
+      <svg
+        class="w-6 h-6"
+        aria-hidden="true"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          fill-rule="evenodd"
+          d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
+        ></path>
+      </svg>
+    </button>
+
+    <aside
+      id="default-sidebar"
+      class="fixed top-0 left-0 z-40 w-80 h-screen transition-transform -translate-x-full sm:translate-x-0"
+      aria-label="Sidebar"
+    >
+      <div
+        class="h-full px-3 py-4 overflow-y-auto bg-gray-50 bg-[#f8f9fa] border-[#f8f9fa] dark:bg-[#f8f9fa]"
+      >
+        <img
+          src="img/Chick&Twirls-logo.png"
+          alt="Chick & Twirl Logo"
+          class="h-36 mx-auto mb-4"
+        />
+
+        <hr class="my-4 border-black" />
+
+        <ul class="space-y-2 font-medium">
+          <!-- Offers -->
+          <li>
+            <a
+              href="#offers"
+              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+            >
+              <!-- Tag icon -->
+              <svg
+                class="w-5 h-5 text-black-500 transition duration-75 dark:text-black group-hover:text-gray-900 dark:group-hover:text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M17.707 10.293l-8-8A1 1 0 008.586 2H3a1 1 0 00-1 1v5.586a1 1 0 00.293.707l8 8a1 1 0 001.414 0l6-6a1 1 0 000-1.414zM5 7a1 1 0 110-2 1 1 0 010 2z"
+                />
+              </svg>
+              <span class="ms-3 text-black">Offers</span>
+            </a>
+          </li>
+
+          <!-- Chicken -->
+          <li>
+            <a
+              href="#chicken"
+              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+            >
+              <svg
+                class="w-5 h-5 text-black-500 transition duration-75 dark:text-black group-hover:text-gray-900 dark:group-hover:text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M15.72 2.28a4 4 0 00-5.657 0l-1.06 1.06a2 2 0 000 2.83l.354.354-5.657 5.657a3 3 0 104.242 4.243l5.657-5.657.354.354a2 2 0 002.828 0l1.061-1.06a4 4 0 000-5.657l-2.121-2.122z"
+                />
+              </svg>
+              <span class="ms-3 text-black">Chicken</span>
+            </a>
+          </li>
+
+          <!-- Pasta -->
+          <li>
+            <a
+              href="#pasta"
+              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+            >
+              <svg
+                class="w-5 h-5 text-black-500 transition duration-75 dark:text-black group-hover:text-gray-900 dark:group-hover:text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M2 12a10 10 0 1020 0H2zm10-8a8 8 0 017.446 5H4.554A8 8 0 0112 4z"
+                />
+              </svg>
+              <span class="ms-3 text-black">Pasta</span>
+            </a>
+          </li>
+
+          <!-- Beverages -->
+          <li>
+            <a
+              href="#beverages"
+              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+            >
+              <svg
+                class="w-5 h-5 text-black-500 transition duration-75 dark:text-black group-hover:text-gray-900 dark:group-hover:text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M4 4h16v4a4 4 0 01-4 4H8a4 4 0 01-4-4V4zm0 8h16v2a6 6 0 11-12 0H4v2a8 8 0 0016 0v-2H4v2z"
+                />
+              </svg>
+              <span class="ms-3 text-black">Beverages</span>
+            </a>
+          </li>
+
+          <!-- Others -->
+          <li>
+            <a
+              href="#others"
+              class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+            >
+              <svg
+                class="w-5 h-5 text-black-500 transition duration-75 dark:text-black group-hover:text-gray-900 dark:group-hover:text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 7a2 2 0 110-4 2 2 0 010 4zm0 6a2 2 0 110-4 2 2 0 010 4zm0 6a2 2 0 110-4 2 2 0 010 4z"
+                />
+              </svg>
+              <span class="ms-3 text-black">Others</span>
+            </a>
+          </li>
+        </ul>
+
+        <hr class="my-4 border-black" />
+      </div>
+    </aside>
+
+    <div class="p-4 mt-6 sm:ml-80">
+      <!-- Start of Menu -->
+      <div
+        class="col-span-2 border-solid border-2 border-[#f8f9fa] rounded-md p-4"
+      >
+        <h2 class="text-3xl text-white py-1">Menu</h2>
+        <hr />
+
+        <div class="max-h-[75vh] overflow-y-auto pr-2">
+          <!-- Offers Prices -->
+          <div class="mb-12">
+            <h3 id="offers" class="text-2xl font-semibold text-[#c62b2b] my-4">
+              Limited Offers
+            </h3>
+            <div class="grid md:grid-cols-3 gap-6">
+              <div
+                class="hover:-translate-y-2 transition bg-white shadow-md rounded-lg p-6 text-center"
+              >
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZl7MXC22ZFfr88SLh8MsNw8FukA91B1gdFQ&s"
+                  alt="Twirl & Feast Combo"
+                  class="w-32 h-32 mx-auto"
+                />
+                <h4 class="text-xl font-medium text-gray-800 mt-4">
+                  Twirl & Feast Combo
+                </h4>
+                <p class="text-lg text-gray-600 my-2">
+                  Get 1 pasta + 6 wings + garlic bread for a discounted price!
+                </p>
+                <p class="text-lg text-gray-600 my-2 font-semibold">₱400</p>
+                <p class="text-gray-600 mb-4">
+                  <label for="quantity" class="font-bold">Quantity:</label>
+                  <input
+                    type="number"
+                    id="quantity"
+                    value="1"
+                    min="1"
+                    max="10"
+                    class="w-16 text-center border border-gray-300 rounded-md ml-2"
+                  />
+                </p>
+                <p>
+                  <button
+                    class="add-to-order px-8 py-2 bg-[#d32f2f] rounded-md"
+                    data-name="Twirl & Feast Combo"
+                    data-price="400"
+                  >
+                    Add to order
+                  </button>
+                </p>
+              </div>
+
+              <div
+                class="hover:-translate-y-2 transition bg-white shadow-md rounded-lg p-6 text-center"
+              >
+                <img
+                  src="https://www.paesana.com/hubfs/Blog/Italian-Table-Setting-with-people-eating-scrumptous-pasta-.jpg"
+                  alt="Couple’s Italian Platter"
+                  class="w-32 h-32 mx-auto"
+                />
+                <h4 class="text-xl font-medium text-gray-800 mt-4">
+                  Couple’s Italian Platter
+                </h4>
+                <p class="text-lg text-gray-600 my-2">
+                  1 large pasta + 2 chicken dishes + drinks for a romantic
+                  dinner deal.
+                </p>
+                <p class="text-lg font-semibold text-gray-600 my-2">₱869</p>
+                <p class="text-gray-600 mb-4">
+                  <label for="quantity" class="font-bold">Quantity:</label>
+                  <input
+                    type="number"
+                    id="quantity"
+                    value="1"
+                    min="1"
+                    max="10"
+                    class="w-16 text-center border border-gray-300 rounded-md ml-2"
+                  />
+                </p>
+                <p>
+                  <button
+                    class="add-to-order px-8 py-2 bg-[#d32f2f] rounded-md"
+                    data-name="Couple’s Italian Platter"
+                    data-price="869"
+                  >
+                    Add to order
+                  </button>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chicken Specialties Prices -->
+          <div id="chicken" class="mb-12">
+            <h3 class="text-2xl font-semibold text-[#c62b2b] mb-4">
+              Chicken Specialties
+            </h3>
+            <div class="grid md:grid-cols-3 gap-6">
+              <div
+                class="hover:-translate-y-2 transition bg-white shadow-md rounded-lg p-6 text-center"
+              >
+                <img
+                  src="https://thecozycook.com/wp-content/uploads/2024/05/Garlic-Parmesan-Chicken-f.jpg"
+                  alt="Garlic Parmesan Chicken"
+                  class="w-32 h-32 mx-auto"
+                />
+                <h4 class="text-xl font-medium text-gray-800 mt-4">
+                  Garlic Parmesan Chicken
+                </h4>
+                <p class="text-lg text-gray-600 my-2 font-semibold">₱150</p>
+                <p class="text-gray-600 mb-4">
+                  <label for="quantity" class="font-bold">Quantity:</label>
+                  <input
+                    type="number"
+                    id="quantity"
+                    value="1"
+                    min="1"
+                    max="10"
+                    class="w-16 text-center border border-gray-300 rounded-md ml-2"
+                  />
+                </p>
+                <p>
+                  <button
+                    class="add-to-order px-8 py-2 bg-[#d32f2f] rounded-md"
+                    data-name="Garlic Parmesan Chicken"
+                    data-price="150"
+                  >
+                    Add to order
+                  </button>
+                </p>
+              </div>
+
+              <div
+                class="hover:-translate-y-2 transition bg-white shadow-md rounded-lg p-6 text-center"
+              >
+                <img
+                  src="https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2024/01/Lemon-Pepper-Chicken-main.jpg"
+                  alt="Lemon Pepper Wings"
+                  class="w-32 h-32 mx-auto"
+                />
+                <h4 class="text-xl font-medium text-gray-800 mt-4">
+                  Lemon Pepper Chicken
+                </h4>
+                <p class="text-lg font-semibold text-gray-600 my-2">₱350</p>
+                <p class="text-gray-600 mb-4">
+                  <label for="quantity" class="font-bold">Quantity:</label>
+                  <input
+                    type="number"
+                    id="quantity"
+                    value="1"
+                    min="1"
+                    max="10"
+                    class="w-16 text-center border border-gray-300 rounded-md ml-2"
+                  />
+                </p>
+                <p>
+                  <button
+                    class="add-to-order px-8 py-2 bg-[#d32f2f] rounded-md"
+                    data-name="Lemon Pepper Chicken"
+                    data-price="350"
+                  >
+                    Add to order
+                  </button>
+                </p>
+              </div>
+              <div
+                class="hover:-translate-y-2 transition bg-white shadow-md rounded-lg p-6 text-center"
+              >
+                <img
+                  src="https://www.maggi.ph/sites/default/files/srh_recipes/404fd85ebe8a7c856ec711a85baa71ce.jpg"
+                  alt="Buffalo Wings"
+                  class="w-32 h-32 mx-auto"
+                />
+                <h4 class="text-xl font-medium text-gray-800 mt-4">
+                  4pcs Buffalo Wings
+                </h4>
+                <p class="text-lg font-semibold text-gray-600 my-2">₱180</p>
+                <p class="text-gray-600 mb-4">
+                  <label for="quantity" class="font-bold">Quantity:</label>
+                  <input
+                    type="number"
+                    id="quantity"
+                    value="1"
+                    min="1"
+                    max="10"
+                    class="w-16 text-center border border-gray-300 rounded-md ml-2"
+                  />
+                </p>
+                <p>
+                  <button
+                    class="add-to-order px-8 py-2 bg-[#d32f2f] rounded-md"
+                    data-name="Buffalo Wings"
+                    data-price="180"
+                  >
+                    Add to order
+                  </button>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pasta Twirls Prices -->
+          <div id="pasta" class="mb-12">
+            <h3 class="text-2xl font-semibold text-[#c62b2b] mb-4">
+              Pasta Twirls
+            </h3>
+            <div class="grid md:grid-cols-3 gap-6">
+              <div
+                class="hover:-translate-y-2 transition bg-white shadow-md rounded-lg p-6 text-center"
+              >
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuV0dQ0uJlxI7m0yPa1f_KK3R315juQXnx4A&s"
+                  alt="Classic Alfredo Pasta"
+                  class="w-32 h-32 mx-auto"
+                />
+                <h4 class="text-xl font-medium text-gray-800 mt-4">
+                  Classic Alfredo Pasta
+                </h4>
+                <p class="text-lg text-gray-600 my-2 font-semibold">₱200</p>
+                <p class="text-gray-600 mb-4">
+                  <label for="quantity" class="font-bold">Quantity:</label>
+                  <input
+                    type="number"
+                    id="quantity"
+                    value="1"
+                    min="1"
+                    max="10"
+                    class="w-16 text-center border border-gray-300 rounded-md ml-2"
+                  />
+                </p>
+                <p>
+                  <button
+                    class="add-to-order px-8 py-2 bg-[#d32f2f] rounded-md"
+                    data-name="Classic Alfredo Pasta"
+                    data-price="200"
+                  >
+                    Add to order
+                  </button>
+                </p>
+              </div>
+
+              <div
+                class="hover:-translate-y-2 transition bg-white shadow-md rounded-lg p-6 text-center"
+              >
+                <img
+                  src="https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/chicken_arrabiata_88408_16x9.jpg"
+                  alt="Penne Arrabiata"
+                  class="w-32 h-32 mx-auto"
+                />
+                <h4 class="text-xl font-medium text-gray-800 mt-4">
+                  Penne Arrabiata
+                </h4>
+                <p class="text-lg font-semibold text-gray-600 my-2">₱229</p>
+                <p class="text-gray-600 mb-4">
+                  <label for="quantity" class="font-bold">Quantity:</label>
+                  <input
+                    type="number"
+                    id="quantity"
+                    value="1"
+                    min="1"
+                    max="10"
+                    class="w-16 text-center border border-gray-300 rounded-md ml-2"
+                  />
+                </p>
+                <p>
+                  <button
+                    class="add-to-order px-8 py-2 bg-[#d32f2f] rounded-md"
+                    data-name="Penne Arrabiata"
+                    data-price="229"
+                  >
+                    Add to order
+                  </button>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Beverages Prices -->
+          <div id="beverages" class="mb-12">
+            <h3 class="text-2xl font-semibold text-[#c62b2b] mb-4">
+              Beverages
+            </h3>
+            <div class="grid md:grid-cols-3 gap-6">
+              <div
+                class="hover:-translate-y-2 transition bg-white shadow-md rounded-lg p-6 text-center"
+              >
+                <img
+                  src="https://shopsuki.ph/cdn/shop/files/4800049720107a_1024x.jpg?v=1709289437"
+                  alt="Purified Water"
+                  class="w-32 h-32 mx-auto"
+                />
+                <h4 class="text-xl font-medium text-gray-800 mt-4">
+                  Purified Water
+                </h4>
+                <p class="text-lg text-gray-600 my-2 font-semibold">₱15</p>
+                <p class="text-gray-600 mb-4">
+                  <label for="quantity" class="font-bold">Quantity:</label>
+                  <input
+                    type="number"
+                    id="quantity"
+                    value="1"
+                    min="1"
+                    max="10"
+                    class="w-16 text-center border border-gray-300 rounded-md ml-2"
+                  />
+                </p>
+                <p>
+                  <button
+                    class="add-to-order px-8 py-2 bg-[#d32f2f] rounded-md"
+                    data-name="Purified Water"
+                    data-price="15"
+                  >
+                    Add to order
+                  </button>
+                </p>
+              </div>
+              <div
+                class="hover:-translate-y-2 transition bg-white shadow-md rounded-lg p-6 text-center"
+              >
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq5NIGBko34qIxtBvXVdMes2TqNwNDBtbTkg&s"
+                  alt="Iced Tea"
+                  class="w-32 h-32 mx-auto"
+                />
+                <h4 class="text-xl font-medium text-gray-800 mt-4">Iced Tea</h4>
+                <p class="text-lg font-semibold text-gray-600 my-2">₱25</p>
+                <p class="text-gray-600 mb-4">
+                  <label for="quantity" class="font-bold">Quantity:</label>
+                  <input
+                    type="number"
+                    id="quantity"
+                    value="1"
+                    min="1"
+                    max="10"
+                    class="w-16 text-center border border-gray-300 rounded-md ml-2"
+                  />
+                </p>
+                <p>
+                  <button
+                    class="add-to-order px-8 py-2 bg-[#d32f2f] rounded-md"
+                    data-name="Iced Tea"
+                    data-price="25"
+                  >
+                    Add to order
+                  </button>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Others Prices -->
+          <div id="others" class="mb-12">
+            <h3 class="text-2xl font-semibold text-[#c62b2b] mb-4">Others</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+              <div
+                class="hover:-translate-y-2 transition bg-white shadow-md rounded-lg p-6 text-center"
+              >
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_qnZVq-50KqUmm5nHy4GHLnTDcEekSl2Xbw&s"
+                  alt="Sparkling Water"
+                  class="w-32 h-32 mx-auto"
+                />
+                <h4 class="text-xl font-medium text-gray-800 mt-4">
+                  Extra Sauces
+                </h4>
+                <p class="text-lg font-semibold text-gray-600 my-2">₱25</p>
+                <p class="text-gray-600 mb-4">
+                  <label for="quantity" class="font-bold">Quantity:</label>
+                  <input
+                    type="number"
+                    id="quantity"
+                    value="1"
+                    min="1"
+                    max="10"
+                    class="w-16 text-center border border-gray-300 rounded-md ml-2"
+                  />
+                </p>
+                <p>
+                  <button
+                    class="add-to-order px-8 py-2 bg-[#d32f2f] rounded-md"
+                    data-name="Extra Sauces"
+                    data-price="25"
+                  >
+                    Add to order
+                  </button>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of Menu -->
+
+      <!-- Start of Ordered -->
+      <div
+        class="mt-8 col-span-1 border-solid border-2 border-[#f8f9fa] rounded-md p-4"
+      >
+        <h2 class="text-3xl text-white py-1">Ordered Items</h2>
+        <hr />
+        <div class="max-h-[50vh] overflow-y-auto pr-2">
+          <ul id="order-list" class="text-white mt-4 space-y-2 max-h-"></ul>
+          <div>
+            <h3 class="font-bold text-2xl text-white mt-4">
+              Total: <span id="money" class="font-medium">0.00</span>
+            </h3>
+            <h4 class="font-bold text-2xl text-white">
+              <label for="amount">Enter Amount: </label>
+              <input
+                type="number"
+                id="amount"
+                value="0"
+                min="0"
+                max="10000"
+                class="w-40 font-medium text-center text-gray-700 border border-gray-300 rounded-md ml-2"
+              />
+            </h4>
+            <div class="flex justify-center mt-4">
+              <button
+                id="pay-button"
+                class="px-16 py-2 bg-yellow-300 text-gray-700 font-bold rounded-md mt-4"
+              >
+                Pay
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of Ordered -->
+    </div>
+
+    <!-- Receipt -->
+
+    <!-- Payment Confirmation Modal -->
+    <div
+      id="confirmationModal"
+      class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 hidden z-50"
+    >
+      <div
+        class="bg-white text-black rounded-2xl shadow-lg w-[350px] p-6 font-['Poppins'] relative"
+      >
+        <button
+          id="closeConfirmationModal"
+          class="absolute top-2 right-2 text-gray-500 hover:text-red-500"
+        >
+          &times;
+        </button>
+        <h3 class="text-lg font-semibold text-center">Confirm Payment</h3>
+        <p class="text-sm text-center mt-2">
+          Are you sure you want to proceed with the payment?
+        </p>
+        <div class="flex justify-between mt-4">
+          <button
+            id="confirmPayment"
+            class="bg-green-500 text-white px-4 py-2 rounded"
+          >
+            Yes, Proceed
+          </button>
+          <button
+            id="cancelPayment"
+            class="bg-red-500 text-white px-4 py-2 rounded"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment Success Modal -->
+    <div
+      id="paymentModal"
+      class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 hidden z-50"
+    >
+      <div
+        class="bg-white text-black rounded-2xl shadow-lg w-[350px] p-6 font-['Poppins'] relative"
+      >
+        <button
+          id="closeModal"
+          class="absolute top-2 right-2 text-gray-500 hover:text-red-500"
+        >
+          &times;
+        </button>
+
+        <div class="border-b pb-4 mb-4">
+          <h2 class="text-2xl font-bold text-center text-[#e63946]">
+            Chick & Twirl
+          </h2>
+          <p class="text-sm text-center">Order Ticket</p>
+        </div>
+
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between">
+            <span class="font-medium">Order No:</span>
+            <span id="orderNo">#CT0000</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="font-medium">Customer:</span>
+            <span id="customerName">Customer</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="font-medium">Date:</span>
+            <span id="orderDate">Date</span>
+          </div>
+        </div>
+
+        <div class="border-t border-dashed my-4"></div>
+
+        <div id="modalOrderItems" class="space-y-2 text-sm">
+          <!-- Order items will appear here -->
+        </div>
+
+        <div class="border-t border-dashed my-4"></div>
+
+        <div class="border-t border-dashed my-4"></div>
+
+        <div class="flex justify-between text-base font-bold">
+          <span>Total:</span>
+          <span id="modalTotal">₱0.00</span>
+        </div>
+
+        <div class="space-y-2 text-sm mt-4">
+          <div class="flex justify-between">
+            <span class="font-medium">Amount Given:</span>
+            <span id="amountGiven">₱0.00</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="font-medium">Change:</span>
+            <span id="changeAmount">₱0.00</span>
+          </div>
+        </div>
+
+        <div class="mt-6 text-center text-xs text-gray-500">
+          Thank you for ordering! <br />
+          Visit us again!
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/493000f9ec.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="script.js"></script>
+
+    <!-- Flowbite Link -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+  </body>
+</html>
