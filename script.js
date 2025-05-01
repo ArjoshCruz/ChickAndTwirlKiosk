@@ -73,79 +73,80 @@ $(document).ready(function () {
     $orderTotal.text(total.toFixed(2));
   });
 
-// Pay button
-$('#pay-button').on('click', function () {
-const amountGiven = parseFloat($('#amount').val());
+  // Pay button
+  $('#pay-button').on('click', function () {
+    const amountGiven = parseFloat($('#amount').val());
 
-if (!amountGiven) {
-  alert('Please enter an amount.');
-  return;
-}
+    if (!amountGiven) {
+      alert('Please enter an amount.');
+      return;
+    }
 
-if (amountGiven < total) {
-  alert('Insufficient amount. Please enter more.');
-  return;
-}
+    if (amountGiven < total) {
+      alert('Insufficient amount. Please enter more.');
+      return;
+    }
 
-// Show confirmation modal
-$('#confirmationModal').removeClass('hidden');
+    // Show confirmation modal
+    $('#confirmationModal').removeClass('hidden');
 
-// If confirmed, proceed with payment
-$('#confirmPayment').on('click', function () {
-  const change = amountGiven - total;
+    // Remove any previous click listeners before adding new ones
+    $('#confirmPayment').off('click').on('click', function () {
+      const change = amountGiven - total;
 
-  $('#orderNo').text(`#CT${Math.floor(Math.random() * 9000) + 1000}`);
-  $('#orderDate').text(new Date().toLocaleDateString('en-PH', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  }));
-  $('#modalTotal').text(`₱${total.toFixed(2)}`);
-  $('#amountGiven').text(`₱${amountGiven.toFixed(2)}`);
-  $('#changeAmount').text(`₱${change.toFixed(2)}`);
+      $('#orderNo').text(`#CT${Math.floor(Math.random() * 9000) + 1000}`);
+      $('#orderDate').text(new Date().toLocaleDateString('en-PH', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      }));
+      $('#modalTotal').text(`₱${total.toFixed(2)}`);
+      $('#amountGiven').text(`₱${amountGiven.toFixed(2)}`);
+      $('#changeAmount').text(`₱${change.toFixed(2)}`);
 
-  const $itemsContainer = $('#modalOrderItems');
-  $itemsContainer.empty();
+      const $itemsContainer = $('#modalOrderItems');
+      $itemsContainer.empty();
 
-  orderItems.forEach(item => {
-    $itemsContainer.append(`
-      <div class="flex justify-between text-sm">
-        <span>${item.name} x${item.quantity}</span>
-        <span>₱${item.price.toFixed(2)}</span>
-      </div>
-    `);
+      orderItems.forEach(item => {
+        $itemsContainer.append(`
+          <div class="flex justify-between text-sm">
+            <span>${item.name} x${item.quantity}</span>
+            <span>₱${item.price.toFixed(2)}</span>
+          </div>
+        `);
+      });
+
+      // Show receipt modal
+      $('#paymentModal').removeClass('hidden');
+
+      // Reset cart
+      $orderList.empty();
+      $('#amount').val(0);
+      total = 0;
+      $orderTotal.text('0.00');
+      orderItems = [];
+
+      // Close confirmation modal
+      $('#confirmationModal').addClass('hidden');
+    });
+
+    // Remove old cancel listener too
+    $('#cancelPayment').off('click').on('click', function () {
+      $('#confirmationModal').addClass('hidden');
+    });
   });
 
-  $('#paymentModal').removeClass('hidden');
-
-  // Reset cart
-  $orderList.empty();
-  $('#amount').val(0);
-  total = 0;
-  $orderTotal.text('0.00');
-  orderItems = [];
-
-    // Close confirmation modal
+  // Manual close of confirmation modal
+  $('#closeConfirmationModal').on('click', function () {
     $('#confirmationModal').addClass('hidden');
   });
 
-  // If canceled, close the confirmation modal
-  $('#cancelPayment').on('click', function () {
-    $('#confirmationModal').addClass('hidden');
-  });
-});
-
-// Close if user clicks exitg
-$('#closeConfirmationModal').on('click', function () {
-  $('#confirmationModal').addClass('hidden');
-});
-
-
-  // Close modal
+  // Close receipt modal
   $('#closeModal').on('click', function () {
     $('#paymentModal').addClass('hidden');
   });
 });
+
 
 
 
